@@ -5,11 +5,6 @@ body{font-family:"microsoft yahei";font-size:.28em;line-height:1;color:#333;back
 img{vertical-align:middle;border:0}
 h1 { font-size: .34rem; }
 
-/*public*/
-body { padding-bottom: 1rem; }
-.clear { zoom:1; }
-.clear:after { content:''; display:block; height: 0; clear:both; }
-
 /*layout*/
 header {
     position: relative;
@@ -112,9 +107,13 @@ nav > span.active { border-bottom: .07rem solid #91d4da; }
 }
 
 .module > figure { 
-    padding: .28rem 0; 
+    margin-top: .3rem;
     display: -webkit-flex;
             display: flex;
+}
+
+.module > figure:nth-of-type(2){
+    margin-top: .2rem;
 }
 
 .module > figure img { 
