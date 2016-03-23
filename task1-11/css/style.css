@@ -126,7 +126,7 @@ nav > span.active { border-bottom: .07rem solid #91d4da; }
     -webkit-flex: 1;
     flex: 1;
     display: -webkit-flex;
-    display: flex;
+            display: flex;
     -webkit-flex-wrap: wrap;
             flex-wrap: wrap;
     -webkit-justify-content: space-between;
@@ -142,7 +142,7 @@ nav > span.active { border-bottom: .07rem solid #91d4da; }
     background: #f8f8f8;
 }
 .module > figure > .imgDesc > span:nth-of-type(3),
-.module > figure > .imgDesc > span:nth-of-type(4) { -webkit-align-self: flex-end; align-self: flex-end}
+.module > figure > .imgDesc > span:nth-of-type(4) { -webkit-align-self: flex-end; align-self: flex-end; }
 
 article {
     padding: .18rem .2rem;
