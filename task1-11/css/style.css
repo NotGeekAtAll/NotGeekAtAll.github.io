@@ -1,99 +1,3 @@
-<<<<<<< HEAD
-/*reset*/
-*{padding:0;margin:0;-webkit-font-smoothing: antialiased;}
-html{font-size:50px;-webkit-tap-highlight-color:transparent;height:100%;min-width:320px;overflow-x:hidden;}
-body{font-family:"microsoft yahei";font-size:.28em;line-height:1;color:#333;background-color:#f5f5f5;}
-img{vertical-align:middle;border:0}
-
-/*public*/
-.clear { zoom:1; }
-.clear:after { content:''; display:block; height: 0; clear:both; }
-
-/*layout*/
-header {
-    position: relative;
-    height: .86rem;
-    text-align: center;
-    line-height: .86rem;
-    color: #fff; 
-    background: #91d4da;
-}
-
-header > a {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding-left: .55rem;
-    font-size: .34rem;
-}
-
-header > a:before {
-    position: absolute;
-    top: 0;
-    left: .22rem;
-    content: "<";
-}
-
-header > h1 {
-    font-size: .36rem;
-}
-
-
-nav {
-    background: #fff;
-    display:-webkit-flex;
-    display: flex;
-}
-        
-nav > span {
-    height: .88rem;
-    -webkit-flex: 1;
-            flex: 1;
-    text-align: center;
-    line-height: .88rem;
-    box-sizing: border-box;
-}
-
-nav > span.active { border-bottom: .07rem solid #91d4da; }
-
-img.banner { width: 7.5rem; }
-
-.brand-wrap {
-    padding: 0 .2rem;
-    background: #fff;
-}
-
-.brand {
-    border-bottom: 1px solid #e5e5e5;
-     -webkit-display: flex;
-             display: flex;
-    -webkit-justify-content: space-around;
-            justify-content: space-around;
-}
-
-.brand > figure {
-    -webkit-flex: 1;
-            flex: 1;
-    text-align: center;
-    padding: .3rem 0 .4rem 0;
-}
-
-.brand > figure > img {
-    width: .9rem;
-    padding-bottom: .3rem;
-}
-
-.brand > figure > p { text-align: center;}
-
-
-
-
-
-
-
-
-
-=======
 /*reset*/
 *{padding:0;margin:0;-webkit-font-smoothing: antialiased;}
 html{font-size:50px;-webkit-tap-highlight-color:transparent;height:100%;min-width:320px;overflow-x:hidden;}
@@ -162,8 +66,8 @@ img.banner { width: 7.5rem; }
 
 .brand {
     border-bottom: 1px solid #e5e5e5;
-     -webkit-display: flex;
-             display: flex;
+    -webkit-display: flex;
+            display: flex;
     -webkit-justify-content: space-around;
             justify-content: space-around;
 }
@@ -182,12 +86,3 @@ img.banner { width: 7.5rem; }
 
 .brand > figure > p { text-align: center;}
 
-
-
-
-
-
-
-
-
->>>>>>> 912d4d3ed99b5dcbea090bd603b868fe7cb5417b
