@@ -108,8 +108,6 @@ nav > span.active { border-bottom: .07rem solid #91d4da; }
 
 .module > figure { 
     margin-top: .3rem;
-    display: -webkit-flex;
-            display: flex;
 }
 
 .module > figure:nth-of-type(2){
@@ -122,9 +120,8 @@ nav > span.active { border-bottom: .07rem solid #91d4da; }
 }
 
 .module > figure > .imgDesc { 
+    display: inline-block;
     margin-left: .2rem; 
-    -webkit-flex: 1;
-    flex: 1;
     display: -webkit-flex;
             display: flex;
     -webkit-flex-wrap: wrap;
