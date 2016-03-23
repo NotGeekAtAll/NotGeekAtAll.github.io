@@ -57,10 +57,10 @@ nav > span {
 
 nav > span.active { border-bottom: .07rem solid #91d4da; }
 
-img.banner { width: 7.5rem; }
+.banner img { width: 100%; }
 
 .brand-wrap {
-    padding: 0 .2rem .3rem .2rem;
+    padding: 0 .2rem;
     background: #fff;
 }
 
@@ -90,9 +90,53 @@ img.banner { width: 7.5rem; }
 }
 
 .brand.colunm { 
-    padding: .3rem; 
+    padding: .3rem 0;  
 }
 .brand.colunm > figure { padding: .1rem 0; }
 .brand.colunm > figure:not(:last-child) { border-right: 1px solid #e5e5e5; }
 .brand.colunm > figure > img { width: 1.6rem; height: 1.4rem; }
 .brand.colunm > figure > p { margin-top: .2rem; }
+
+.module { 
+    padding: .2rem;  
+    margin-top: .26rem; 
+    background: #fff;
+}
+
+.module > h1 {
+    height: .86rem;
+    line-height: .6rem;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.module > figure { 
+    padding: .28rem 0; 
+    display: -webkit-flex;
+            display: flex;
+}
+
+.module > figure img { 
+    width: 1.81rem;
+    height: 1.7rem;
+}
+
+.module > figure > .imgDesc { 
+    margin-left: .2rem; 
+    -webkit-flex: 1;
+    flex: 1;
+    display: -webkit-flex;
+            display: flex;
+    -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-justify-content: space-between;
+            justify-content: space-between;
+}
+
+.module > figure > .imgDesc > span {
+    width: 2.4rem;
+    height: .76rem;
+    text-align: center;
+    line-height: .76rem;
+    background: #f8f8f8;
+}
+
