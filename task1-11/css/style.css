@@ -27,6 +27,7 @@ header > a:before {
     position: absolute;
     top: 0;
     left: .22rem;
+    font-weight: bold;
     content: "<";
 }
 
@@ -107,6 +108,7 @@ nav > span.active { border-bottom: .07rem solid #91d4da; }
 }
 
 .module > figure { 
+    overflow: hidden;
     margin-top: .3rem;
 }
 
@@ -115,13 +117,14 @@ nav > span.active { border-bottom: .07rem solid #91d4da; }
 }
 
 .module > figure img { 
+    float: left;
     width: 1.81rem;
     height: 1.7rem;
 }
 
 .module > figure > .imgDesc { 
-    display: inline-block;
-    margin-left: .2rem; 
+    height: 1.7rem;
+    margin-left: 2rem; 
     display: -webkit-flex;
             display: flex;
     -webkit-flex-wrap: wrap;
