@@ -40,7 +40,7 @@ header > h1 {
 
 nav {
     background: #fff;
-    -webkit-display: flex;
+    display: -webkit-flex;
             display: flex;
 }
 
@@ -60,23 +60,21 @@ nav > span.active { border-bottom: .07rem solid #91d4da; }
 img.banner { width: 7.5rem; }
 
 .brand-wrap {
-    padding: 0 .2rem;
+    padding: 0 .2rem .3rem .2rem;
     background: #fff;
 }
 
 .brand {
-    border-bottom: 1px solid #e5e5e5;
-    -webkit-display: flex;
+    display: -webkit-flex;
             display: flex;
-    -webkit-justify-content: space-around;
-            justify-content: space-around;
+     -webkit-justify-content: space-between;
+             justify-content: space-between;
 }
 
 .brand > figure {
     -webkit-flex: 1;
             flex: 1;
     text-align: center;
-    padding: .3rem 0 .4rem 0;
 }
 
 .brand > figure > img {
@@ -86,3 +84,15 @@ img.banner { width: 7.5rem; }
 
 .brand > figure > p { text-align: center;}
 
+.brand.tag { 
+    padding: .4rem 0; 
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.brand.colunm { 
+    padding: .3rem; 
+}
+.brand.colunm > figure { padding: .1rem 0; }
+.brand.colunm > figure:not(:last-child) { border-right: 1px solid #e5e5e5; }
+.brand.colunm > figure > img { width: 1.6rem; height: 1.4rem; }
+.brand.colunm > figure > p { margin-top: .2rem; }
