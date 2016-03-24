@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>IFE JavaScript Task 16</title>
     <link rel="stylesheet" type="text/css" href="http://cdnjs.w3cbus.com/twitter-bootstrap/3.3.1/css/bootstrap.min.css">
     <script src="script.js"></script>
     <style>
@@ -15,40 +15,44 @@
     	.wrap input {
     		width: 260px;
     	}
+
+    	#aqi-table {
+    		width: 700px;
+    		margin: 0 auto;
+    	}
+
+    	td {  text-align: center; }
     </style>
 </head>
 
 <body>
     <form class="form-horizontal wrap">
         <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">城市名称</label>
+            <label for="inputCity" class="col-sm-2 control-label">城市名称</label>
             <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputEmail3">
+                <input class="form-control" id="inputCity">
             </div>
         </div>
         <div class="form-group">
-            <label for="inputPassword3" class="col-sm-2 control-label">空气质量指数</label>
+            <label for="inputAir" class="col-sm-2 control-label">空气质量指数</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword3">
+                <input class="form-control" id="inputAir">
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button class="btn btn-primary" id="addBtn">添加</button>
+                <button class="btn btn-primary" id="addBtn">确认添加</button>
             </div>
         </div>
     </form>
+    <table class="table table-bordered" id="aqi-table">
+    	<tr class="info">
+    		<td>城市</td>
+    		<td>空气质量</td>
+    		<td>操作</td>
+    	</tr>
+	</table>
 
-    <script>
-    	window.onload = function() {
-    		var btn = document.getElementById("addBtn");
-
-    		btn.onclick = function(e) {
-    			e.preventDefault();
-    			alert(11);
-    		}
-    	}
-    </script>
 </body>
 
 </html>
