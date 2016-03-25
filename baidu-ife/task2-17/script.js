@@ -24,15 +24,15 @@ function randomBuildData(seed) {
 }
 
 var aqiSourceData = {
-    "北京": randomBuildData(500)
-    , "上海": randomBuildData(300)
-    , "广州": randomBuildData(200)
-    , "深圳": randomBuildData(100)
-    , "成都": randomBuildData(300)
-    , "西安": randomBuildData(500)
-    , "福州": randomBuildData(100)
-    , "厦门": randomBuildData(100)
-    , "沈阳": randomBuildData(500)
+    "北京": randomBuildData(500),
+    "上海": randomBuildData(300),
+    "广州": randomBuildData(200),
+    "深圳": randomBuildData(100),
+    "成都": randomBuildData(300),
+    "西安": randomBuildData(500),
+    "福州": randomBuildData(100),
+    "厦门": randomBuildData(100),
+    "沈阳": randomBuildData(500)
 };
 
 // 用于渲染图表的数据
@@ -40,20 +40,21 @@ var chartData = {};
 
 // 记录当前页面的表单选项
 var pageState = {
-    nowSelectCity: "北京"
-    , nowGraTime: "day"
+    nowSelectCity: "北京",
+    nowGraTime: "day"
 }
 
 /**
  * 渲染图表
  */
 function renderChart() {
-    var date
-        , str = "";
+    var date, str = "",
+        aniBox = document.getElementById("aniBox");
     for (date in chartData) {
         str += "<span class='aqi-item' style='height:" + chartData[date] +
             "px;background:" + getRandomColor() + ";' title='" + chartData[date] + "'></span>"
     }
+    
     document.getElementById("chartBox").innerHTML = str;
 }
 
@@ -69,7 +70,6 @@ function graTimeChange() {
     } else {
         initAqiChartData();
     }
-    renderChart();
     // 调用图表渲染函数
 }
 
@@ -88,7 +88,6 @@ function citySelectChange() {
     // 设置对应数据
 
     // 调用图表渲染函数
-    renderChart();
 }
 
 /**
@@ -102,8 +101,7 @@ function initGraTimeForm() {
 }
 
 function getRadio() {
-    var value
-        , oInput = document.getElementsByName("gra-time");
+    var value, oInput = document.getElementsByName("gra-time");
     for (var i = 0; i < oInput.length; i++) {
         if (oInput[i].checked) {
             value = oInput[i].value;
@@ -117,9 +115,8 @@ function getRadio() {
  */
 function initCitySelector() {
     // 读取aqiSourceData中的城市，然后设置id为city-select的下拉列表中的选项
-    var citySelect = document.getElementById("city-select")
-        , city
-        , strCity = "";
+    var citySelect = document.getElementById("city-select"),
+        city, strCity = "";
     for (city in aqiSourceData) {
         strCity += "<option>" + city + "</option>"
     }
@@ -146,10 +143,10 @@ function initAqiChartData() {
         break;
     case "week":
         chartData = {};
-        var count = 0
-            , total = 0
-            , week = 1
-            , date, getday;
+        var count = 0,
+            total = 0,
+            week = 1,
+            date, getday;
         for (var time in aqiSourceData[city]) {
             date = new Date(time);
             getday = date.getDay();
@@ -169,10 +166,10 @@ function initAqiChartData() {
         break;
     case "month":
         chartData = {};
-        var count = 0
-            , total = 0
-            , date, month = 1
-            , getmonth;
+        var count = 0,
+            total = 0,
+            date, month = 1,
+            getmonth;
         for (var time in aqiSourceData[city]) {
             date = new Date(time);
             getmonth = date.getMonth() + 1;
