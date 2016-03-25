@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>task2-18</title>
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.w3cbus.com/twitter-bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="script.js"></script>
+    <style>
+        body {
+            padding: 30px 50px;
+        }
+        
+        ul {
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        
+        ul > li {
+            width: 60px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 5px;
+            margin-right: 10px;
+            border: 1px solid
+        }
+    </style>
+</head>
+
+<body>
+    <form class="form-inline">
+        <div class="form-group">
+            <input class="form-control" id="inputNumber" placeholder="请输入数字">
+        </div>
+        <a class="btn btn-default" id="leftIn">左侧入</a>
+        <a class="btn btn-default" id="rightIn">右侧入</a>
+        <a class="btn btn-default" id="leftOut">左侧出</a>
+        <a class="btn btn-default" id="rightOut">右侧出</a>
+    </form>
+    <ul class="list-inline" id="ul">
+        <li>2</li>
+        <li>14</li>
+    </ul>
+
+    <script>
+        window.onload = function () {
+            var lists,
+                input = $("inputNumber"),
+                leftIn = $("leftIn"),
+                rightIn = $("rightIn"),
+                leftOut = $("leftOut"),
+                rightOut = $("rightOut"),
+                oUl = $("ul"),
+                aLi = oUl.getElementsByTagName("li");
+
+            leftIn.addEventListener("click", function () {
+                if (ifIllegal()) {
+                    doMove("leftIn");
+                } else {
+                    alert("请输入数字！");
+                }
+            });
+
+            rightIn.addEventListener("click", function () {
+                if (ifIllegal()) {
+                    doMove("rightIn");
+                } else {
+                    alert("请输入数字！");
+                }
+            });
+
+            leftOut.addEventListener("click", function () {
+                doMove("leftOut");
+            });
+
+            rightOut.addEventListener("click", function () {
+                doMove("rightOut");
+            });
+
+            ul.addEventListener("click", function (e) {
+                var ev = e || window.event;
+                var target = ev.target || ev.srcElement;
+                if (target.nodeName == "LI") {
+                    this.removeChild(target);
+                }
+
+            });
+
+            function doMove(type) {
+                var removeLi,
+                    newLi = document.createElement("li");
+                newLi.innerHTML = input.value;
+                switch (type) {
+                case "leftIn":
+                    oUl.insertBefore(newLi, oUl.childNodes[0]);
+                    break;
+                case "rightIn":
+                    oUl.appendChild(newLi);
+                    break;
+                case "leftOut":
+                    if (aLi.length == 0) {
+                        alert("队列中没有元素了!");
+                        return;
+                    }
+                    alert(aLi[0].innerHTML+"将从左侧出");
+                    removeLi = oUl.removeChild(aLi[0]);
+                    break;
+                case "rightOut":
+                    if (aLi.length == 0) {
+                        alert("队列中没有元素了!");
+                        return;
+                    }
+                    alert(aLi[aLi.length - 1].innerHTML+"将从右侧出");
+                    removeLi = oUl.removeChild(aLi[aLi.length - 1]);
+                    break;
+                }
+            }
+
+            function ifIllegal(func) {
+                if (input.value == "" || !new RegExp("^[0-9]*$").test(input.value)) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+        }
+
+        function $(id) {
+            return document.getElementById(id);
+        }
+    </script>
+</body>
+
+</html>
