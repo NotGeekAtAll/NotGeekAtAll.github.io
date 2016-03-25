@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>task2-19</title>
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.w3cbus.com/twitter-bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="script.js"></script>
+    <style>
+        body {
+            padding: 30px 50px;
+        }
+        
+        ul {
+            margin-top: 100px;
+            width: 1000px;
+            height: 200px;
+            padding-left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border: 1px solid;
+        }
+        
+        ul > li {
+            list-style: none;
+            flex: 1;
+            margin-right: 5px;
+            background: orange;
+        }
+        ul > li:last-child {
+            margin-right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="form-inline">
+        <div class="form-group">
+            <input class="form-control" id="inputNumber" placeholder="请输入数字">
+        </div>
+        <a class="btn btn-default" id="leftIn">左侧入</a>
+        <a class="btn btn-default" id="rightIn">右侧入</a>
+        <a class="btn btn-default" id="leftOut">左侧出</a>
+        <a class="btn btn-default" id="rightOut">右侧出</a>
+        <a class="btn btn-default" id="random">随机生成</a>
+        <a class="btn btn-default" id="order">排序</a>
+    </form>
+    <ul id="ul">
+    </ul>
+</body>
+
+</html>
