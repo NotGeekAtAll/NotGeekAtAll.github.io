@@ -63,7 +63,7 @@ window.onload = function () {
                 alert("队列满了！！！");
                 return;
             }
-            if ( input.value <10 || input.value >60){
+            if ( input.value <10 || input.value > 100){
                 alert("请输入10-60之间的整数！");
                 return;
             }
