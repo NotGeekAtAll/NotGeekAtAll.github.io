@@ -85,7 +85,6 @@ window.onload = function () {
                 alert("队列中没有元素了!");
                 return;
             }
-            alert(aLi[0].innerHTML + "将从左侧出");
             removeLi = oUl.removeChild(aLi[0]);
             break;
         case "rightOut":
@@ -93,7 +92,6 @@ window.onload = function () {
                 alert("队列中没有元素了!");
                 return;
             }
-            alert(aLi[aLi.length - 1].innerHTML + "将从右侧出");
             removeLi = oUl.removeChild(aLi[aLi.length - 1]);
             break;
         case "random":
