@@ -1,0 +1,34 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.clearfix:after {
+	clear: both;
+	content: '.';
+	display: block;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+.l {
+	float: left !important;
+}
+.r {
+	float: right !important;
+}
+html {
+	-webkit-text-size-adjust: none;
+	font-size: 62.5% !important;
+}
+.PCenterBG p { text-align: center; height: 6rem; line-height: 7.4rem;}
+.PCenterBG p img { position: absolute; top: 52%; right: 2rem; width: 1.3rem; }
+.PCenterBG h3 { text-align: center; font-size: 6rem; height:8rem; }
+.PCenterBG { color: #fff; font-size: 1.4rem; background:#007CD9 url(../img/bg1.png) no-repeat center !important; width: 100%; 
+-webkit-background-size: cover; background-size: cover;}
+.PCenterBG section { padding: 0 2rem; }
+.PCenterBG section dl { margin: 1rem 0; }
+.PCenterBG section dl dt { color: rgba(255,255,255,.5); }
+.PCenterBG section dl dd { margin-top: .5rem; }
