@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>test touch</title>
+    <style>
+    body { margin: 0; }
+    .box { width: 100%; overflow: hidden; }
+    ul,li { margin: 0; padding: 0; list-style: none; }
+    ul { width: 500%; overflow: hidden; transition: .5s; }
+    li { width: 20%; float: left; }
+    li { font-size: 40px; color: #fff; text-align: center; line-height: 150px; }
+    li:nth-of-type(1) { background: orange; }
+    li:nth-of-type(2) { background: red; }
+    li:nth-of-type(3) { background: pink; }
+    li:nth-of-type(4) { background: green; }
+    li:nth-of-type(5) { background: #333; }
+
+    #touch { width:100px; height:100px; background: #333; margin: 50px;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul id="test">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+</body>
+<script>
+    function Slider(id) {
+        var _this = this;
+
+        this.wrap = document.getElementById(id);
+        this.slider = this.wrap.getElementsByTagName("li");
+
+        this.startX = 0;   // 手指初始x坐标
+        this.sLeft = 0;    // 初始位移
+        this.index = 0;
+        this.curLeft = 0;  // 当前位移
+        this.disX = 0;     // 滑动差值
+
+        this.wrap.addEventListener("touchstart", function() {
+            _this.fnStart();
+        }, false);
+    }
+
+    Slider.prototype.fnStart = function (e) {
+        var _this = this;
+        e = e || window.event;
+        e.preventDefault();
+        this.startX = e.changedTouches[0].pageX;
+        this.sLeft = this.wrap.style.transform ? - parseInt(/\d+/.exec(this.wrap.style.transform)[0]) : 0;
+        this.wrap.style.transition = "none";
+        document.addEventListener("touchmove", function() {
+            _this.fnMove();
+        }, false);
+
+        document.addEventListener("touchend", function() {
+            _this.fnEnd();
+        }, false);
+    }
+
+    Slider.prototype.fnMove = function (e) {
+        e = e || window.event;
+
+        this.disX = e.changedTouches[0].pageX - this.startX;
+        // console.log(this.disX);
+        this.curLeft = this.disX + this.sLeft;
+        this.wrap.style.transform = "translateX(" + this.curLeft + "px)";
+    }
+
+    Slider.prototype.fnEnd = function (e) {
+
+        if ( this.disX > 100 ) {
+            if ( this.index != 0) {
+                this.index -= 1;
+            }
+        }
+
+        if ( this.disX < -100 ) {
+            if ( this.index < this.slider.length - 1) {
+                this.index += 1;
+            }
+        }
+
+        console.log(this.disX);
+        this.wrap.style.transition = "0.5s";
+        this.wrap.style.transform = "translateX(" + (- this.index*this.slider[0].offsetWidth) + "px)";
+    }
+
+    window.onload = function () {
+        var box1 = new Slider("test");
+    }
+</script>
+</html>
