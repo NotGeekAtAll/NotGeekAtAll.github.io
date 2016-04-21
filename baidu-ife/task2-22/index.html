@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>binary-tree</title>
+	<style>
+		* { padding:0; margin:0; box-sizing: border-box; }
+
+		.tree
+		 {
+			-webkit-display: flex;
+			display: flex;
+			width: 800px;
+			height: 400px;
+			padding: 20px;
+			border: 1px solid black;
+			margin: 50px auto;
+			background: white;
+		}
+
+		.tree > div,
+		.tree > div > div,
+		 { padding: 20px; }
+
+		.tree > div,
+		.tree > div > div,
+		.tree > div > div > div
+		 {
+		 	-webkit-display: flex;
+		 	display: flex;
+			-webkit-flex: 1;
+			flex: 1;
+			border: 1px solid black;
+			padding: 20px;
+			background: white;
+		}
+
+
+		.tree > div:nth-of-type(1), 
+		.tree > div > div:nth-of-type(1),
+		.tree > div > div > div:nth-of-type(1)
+		 {
+			margin-right: 20px;
+		}
+
+		fieldset { 
+			width: 800px;
+			border: none;
+			margin: 50px auto; 
+		}
+
+		fieldset > button {
+			width: 80px;
+			height: 40px;
+			margin-right: 60px;
+		}
+
+		fieldset > input[type='text'] {
+			width: 120px;	
+			height: 40px;
+		}
+	</style>
+	<script src="tree.js"></script>
+</head>
+<body>
+	<div class="tree" id="tree">
+		<div>
+			<div>
+				<div></div>
+				<div></div>
+			</div>
+			<div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<div>
+			<div>
+				<div></div>
+				<div></div>
+			</div>
+			<div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</div>
+	<fieldset>
+		<button id="preOrder">前序</button>
+		<button id="inOrder">中序</button>
+		<button id="postOrder">后序</button>
+		<input type="text" placeholder="单位(ms)" id="delay">
+	</fieldset>
+</body>
+</html>
