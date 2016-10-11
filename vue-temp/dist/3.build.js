@@ -1,2 +1,0 @@
-webpackJsonp([3],{12:function(t,e){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e["default"]={data:function(){return{}}}},45:function(t,e){t.exports=" <div>error 404!</div> "},49:function(t,e,o){var r,n,p={};r=o(12),n=o(45),t.exports=r||{},t.exports.__esModule&&(t.exports=t.exports["default"]);var u="function"==typeof t.exports?t.exports.options||(t.exports.options={}):t.exports;n&&(u.template=n),u.computed||(u.computed={}),Object.keys(p).forEach(function(t){var e=p[t];u.computed[t]=function(){return e}})}});
-//# sourceMappingURL=3.build.js.map
