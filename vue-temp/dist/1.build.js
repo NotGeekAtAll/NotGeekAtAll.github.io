@@ -1,0 +1,2 @@
+webpackJsonp([1],{14:function(t,e){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e["default"]={data:function(){return{}}}},47:function(t,e){t.exports=" <div>Index!</div> "},51:function(t,e,o){var n,r,p={};n=o(14),r=o(47),t.exports=n||{},t.exports.__esModule&&(t.exports=t.exports["default"]);var u="function"==typeof t.exports?t.exports.options||(t.exports.options={}):t.exports;r&&(u.template=r),u.computed||(u.computed={}),Object.keys(p).forEach(function(t){var e=p[t];u.computed[t]=function(){return e}})}});
+//# sourceMappingURL=1.build.js.map
