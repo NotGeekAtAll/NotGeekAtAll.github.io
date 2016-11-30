@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=640">
     <script src="mobile-util.js"></script>
+    <script src="jquery-1.9.0.min.js"></script>
+    <script src="fwcx.js"></script>
     <style>
     html {
         -ms-text-size-adjust: 100%;
@@ -20,76 +22,102 @@
     a img {
         border: 0;
     }
-
+    
     img {
-    	vertical-align: middle;
+        vertical-align: middle;
     }
     
     a {
         text-decoration: none;
     }
+
+    input, button {
+        -webkit-appearance: none;
+                appearance: none;
+        outline: none;
+    }
     
     body {
         line-height: 1.6;
-        font-family: -apple-system-font, "Helvetica Neue", sans-serif;
+        font-family: -apple-system-font, "Helvetica Neue", "Microsoft Yahei", sans-serif;
         font-size: 26px;
         color: #333;
     }
     
-	header {
-		width: 100%;
-		height: 223px;
-	}
-
+    header {
+        width: 100%;
+        height: 223px;
+    }
+    
     .content-wrap {
-        padding: 144px 38px 50px;
+        padding: 100px 38px 50px;
     }
-
+    
     .intro {
-    	margin-bottom: 20px;
-    	background-color: #e50150;
-    	color: #fff;
-    	font-size: 30px;
-    	text-align: center;
-    	line-height: 60px;
+        margin-bottom: 20px;
+        background-color: #e50150;
+        color: #fff;
+        font-size: 30px;
+        text-align: center;
+        line-height: 60px;
+    }
+    
+    .search_form {
+        padding: 32px 0;
+        text-align: center;
+        background: #ddd;
     }
 
-    .search {
-    	height: 150px;
-    	margin-bottom: 134px;
-    	line-height: 150px;
-    	text-align: center;
-    	background-color: #dddddd;
-    }
+    .search_form_wrap {
+        display: inline-block;
+        overflow: hidden;
+    }    
 
-    .search label {
-    	font-size: 32px;
-    	color: #000;
+    .search_form label {
+        float: left;
+        margin-right: 10px;
+        color: #000;
+        line-height: 32px;
     }
-
-    .search input {
-    	-webkit-appearance: none;
-				appearance: none;
-    	width: 344px;
-    	height: 36px;
-    	line-height: 32px;
-    	padding-left: 20px;
-    	font-size: 30px;
-    	color: #000;
-		border: 1px solid #c0c0c0;
-		outline: none;
+    
+    .search_text {
+        float: left;
+        width: 310px;
+        height: 32px;
+        border: 1px solid #dcdcdc;
+        font-size: 26px;
+        line-height: 32px;
+        padding-left: 20px;
+    }
+    
+    .search_btn {
+        float: left;
+        width: 33px;
+        height: 34px;
+        background: url("search_btn.gif");
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+    
+    .result {
+        padding: 40px 0;
     }
 
     .tip {
-    	padding: 24px 0;
-    	color: #e00031;
-    	border-top: 1px solid #e0e0e0;
-    	border-bottom: 1px solid #e0e0e0;
+        padding: 24px 0;
+        color: #e00031;
+        font-size: 22px;
+        border-top: 1px solid #e0e0e0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .tip dt {
+        font-weight: bold;
     }
 
-    .tip dt {
-    	font-size: 22px;
-    	font-weight: bold;
+    .phone {
+        font-size: 22px;
     }
     </style>
     <title>公益星设计</title>
@@ -97,23 +125,29 @@
 
 <body>
     <header>
-    	<img src="title.png" width="100%" height="100%">
+        <img src="title.png" width="100%" height="100%">
     </header>
     <div class="content-wrap">
         <div class="intro">
-			<strong>芭莎公益星设计</strong><span>特许产品防伪查询系统</span>
-		</div>
-		<div class="search">
-			<label for="code">产品查询</label>
-			<input type="text" id="code">
-		</div>
-		<dl class="tip">
-			<dt>温馨提示：</dt>
-			<dd>1、检查防伪标贴的完好性，刮开涂层</dd>
-			<dd>2、在输入框内填写正确的防伪码并核对</dd>
-			<dd>3、点击查询按钮，系统会显示查询结果</dd>
-		</dl>
-		<p>感谢您的查询，如有疑问请在工作日致电0755-2560 1770查询</p>
+            <strong>芭莎公益星设计</strong><span>特许产品防伪查询系统</span>
+        </div>
+        <div class="search_form">
+            <div class="search_form_wrap">
+                <label for="code">产品查询</label>
+                <input class="search_text" id="code" type="text" maxlength="28" placeholder="请输入防伪码" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                <input class="search_btn" type="button" onclick="fwchack('code','result')">
+            </div>
+        </div>
+        <div class="result" id="result">
+            
+        </div>
+        <dl class="tip">
+            <dt>温馨提示：</dt>
+            <dd>1、检查防伪标贴的完好性，刮开涂层</dd>
+            <dd>2、在输入框内填写正确的防伪码并核对</dd>
+            <dd>3、点击查询按钮，系统会显示查询结果</dd>
+        </dl>
+        <p class="phone">感谢您的查询，如有疑问请在工作日致电0755-2560 1770查询</p>
     </div>
 </body>
 
