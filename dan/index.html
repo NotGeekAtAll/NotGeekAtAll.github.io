@@ -63,13 +63,14 @@
     }
     
     .search_form {
-        padding: 32px 0;
         text-align: center;
         background: #ddd;
     }
 
     .search_form_wrap {
+        padding: 32px 0;
         display: inline-block;
+        vertical-align: middle;
         overflow: hidden;
     }    
 
@@ -77,27 +78,26 @@
         float: left;
         margin-right: 10px;
         color: #000;
-        line-height: 32px;
+        line-height: 40px;
     }
     
     .search_text {
         float: left;
         width: 310px;
-        height: 32px;
+        height: 40px;
         border: 1px solid #dcdcdc;
         font-size: 26px;
-        line-height: 32px;
+        line-height: 40px;
         padding-left: 20px;
     }
     
     .search_btn {
         float: left;
-        width: 33px;
-        height: 34px;
-        background: url("search_btn.gif");
-        border: none;
-        cursor: pointer;
-        padding: 0;
+        width: 42px;
+        height: 42px;
+        background: url("search_btn.gif") no-repeat left top / contain;
+        border: 1px solid #dcdcdc;
+        border-left: none;
     }
     
     .result {
@@ -117,7 +117,6 @@
     }
 
     .phone {
-        margin-top: 12px;
         font-size: 22px;
     }
     </style>
