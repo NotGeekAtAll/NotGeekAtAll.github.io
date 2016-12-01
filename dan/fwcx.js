@@ -24,7 +24,7 @@
                 else if ($FwCode.length < 10) {
 
                    document.getElementById(obj1).innerHTML ="防伪码长度不能少于10位";
-		 
+         
                     document.getElementById(obj).focus();
 
                     return false;
@@ -52,30 +52,30 @@
                 }
 
             
-				 $.ajaxSetup({ scriptCharset: "gbk" , contentType: "application/json; charset=utf8"});
-				 
+                 $.ajaxSetup({ scriptCharset: "gbk" , contentType: "application/json; charset=utf8"});
+                 
                 document.getElementById(obj1).innerHTML ="正在查询......";
 
                 $(this).attr("disabled", true);
 
                 var $strurl="" ;
 
-				$.ajax({
-				type:"GET",
-				url:'http://www.zgfw-315.com/fwqueryjson.ashx',
-				dataType:"jsonp",
-				async:false,
-				data:{fwcode: $FwCode},  
-				jsonp:"callback",
-				success:function(data){
-				//    alert(data.CodeState);  //CodeState 为查询状况：1 正确; 2 过期 ; 3 重复 ;   4 作废; 5 错误 ;6 过期
-				//     alert(data.QueryResult) ;   //QueryResult 查询结果 
+                $.ajax({
+                type:"GET",
+                url:'http://www.zgfw-315.com/fwqueryjson.ashx',
+                dataType:"jsonp",
+                async:false,
+                data:{fwcode: $FwCode},  
+                jsonp:"callback",
+                success:function(data){
+                //    alert(data.CodeState);  //CodeState 为查询状况：1 正确; 2 过期 ; 3 重复 ;   4 作废; 5 错误 ;6 过期
+                //     alert(data.QueryResult) ;   //QueryResult 查询结果 
                 //      alert(data.QueryResult);
-			
-				document.getElementById(obj1).innerHTML = data.QueryResult;
-				setTimeout(btnEnabled, 2000);
-				}
-				});
+            
+                document.getElementById(obj1).innerHTML = data.QueryResult;
+                setTimeout(btnEnabled, 2000);
+                }
+                });
 
             function btnEnabled() {
 
