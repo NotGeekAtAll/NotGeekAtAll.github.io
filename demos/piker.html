@@ -46,6 +46,8 @@
 			}, false)
 
 			scrollArea.addEventListener("touchmove", function(e) {
+				e.stopPropagation()
+
 				var offset = e.targetTouches[0].pageY - startY,
 					distance = offset + lastOffset
 				if ( distance > limit) {
