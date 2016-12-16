@@ -83,7 +83,6 @@
 			}, false)
 
 			document.querySelector("#confirm").addEventListener("click", function() {
-				e.stopPropagation()
 
 				var index = Math.abs(lastOffset/36)
 				document.querySelector("#text").innerHTML = `您选择了第${index+1}项${options[index]}`
