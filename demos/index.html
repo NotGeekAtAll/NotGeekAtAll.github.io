@@ -25,7 +25,6 @@
 	<script>
 		window.onload = function() {
 
-
 			var scrollArea = document.querySelector(".picker-column ul"),
 				startY = 0,
 				lastOffset = 0,
@@ -34,7 +33,7 @@
 				options = [1,2,3,4,5,6,8,7,9,10,11,12,13,14,15,16,17,18,19,20];
 
 			for(let i = 0; i < options.length; i++) {
-				doms += `<li>${options[i]}</li>`
+				doms += '<li>'+options[i]+'</li>'
 			}	
 
 			scrollArea.innerHTML = doms
@@ -62,7 +61,7 @@
 					distance = -((options.length - 1) * 36 + limit)
 				}
 
-				scrollArea.style.transform = `translate3d(0, ${distance}px, 0)`
+				scrollArea.style.transform = 'translate3d(0, '+distance+'px, 0)'
 			}, false)
 
 			scrollArea.addEventListener("touchend", function(e) {
@@ -82,13 +81,13 @@
 				}
 
 				if (lastOffset > 0) return
-				scrollArea.style.transform = `translate3d(0, ${lastOffset}px, 0)`
+				scrollArea.style.transform = 'translate3d(0, '+lastOffset+'px, 0)'
 			}, false)
 
 			document.querySelector("#confirm").addEventListener("click", function() {
 
 				var index = Math.abs(lastOffset/36)
-				document.querySelector("#text").innerHTML = `您选择了第${index+1}项${options[index]}`
+				document.querySelector("#text").innerHTML = '您选择了第'+(index+1)+'项'+options[index]
 			}, false)
 		}
 	</script>
