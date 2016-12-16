@@ -39,6 +39,10 @@
 
 			scrollArea.innerHTML = doms
 
+			scrollArea.addEventListener("scroll", function(e) {
+				e.stopPropagation()
+			}, false)
+
 			scrollArea.addEventListener("touchstart", function(e) {
 				e.stopPropagation()
 				startY = e.targetTouches[0].pageY
