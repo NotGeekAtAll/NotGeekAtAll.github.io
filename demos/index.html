@@ -40,17 +40,17 @@
 			scrollArea.innerHTML = doms
 
 			scrollArea.addEventListener("scroll", function(e) {
-				e.stopPropagation()
+				e.preventDefault();
 			}, false)
 
 			scrollArea.addEventListener("touchstart", function(e) {
-				e.stopPropagation()
+				e.preventDefault();
 				startY = e.targetTouches[0].pageY
 
 			}, false)
 
 			scrollArea.addEventListener("touchmove", function(e) {
-				e.stopPropagation()
+				e.preventDefault();
 
 				var offset = e.targetTouches[0].pageY - startY,
 					distance = offset + lastOffset
@@ -66,7 +66,6 @@
 			}, false)
 
 			scrollArea.addEventListener("touchend", function(e) {
-				e.stopPropagation()
 
 				lastOffset += e.changedTouches[0].clientY - startY
 
