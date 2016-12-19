@@ -17,7 +17,7 @@
 			<div class="up"></div>
 			<div class="down"></div>
 			<div class="line"></div>
-			<ul>
+			<ul id="scrollArea">
 			</ul>
 		</div>
 	</div>
@@ -25,12 +25,13 @@
 	<script>
 		window.onload = function() {
 
-			var scrollArea = document.querySelector(".picker-column ul"),
+			var scrollArea = document.getElementById('scrollArea'),
 				startY = 0,
 				lastOffset = 0,
 				limit = 40,
+				itemHeight = 0,
 				doms = '<li></li><li></li>',
-				options = [1,2,3,4,5,6,8,7,9,10,11,12,13,14,15,16,17,18,19,20];
+				options = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 
 			for(let i = 0; i < options.length; i++) {
 				doms += '<li>'+options[i]+'</li>'
@@ -45,7 +46,7 @@
 			scrollArea.addEventListener("touchstart", function(e) {
 				e.preventDefault();
 				startY = e.targetTouches[0].pageY
-
+				itemHeight = document.querySelector(".picker-column ul li").clientHeight
 			}, false)
 
 			scrollArea.addEventListener("touchmove", function(e) {
@@ -57,8 +58,8 @@
 					distance = limit
 				} 
 
-				if ( distance < -((options.length - 1) * 36 + limit)) {
-					distance = -((options.length - 1) * 36 + limit)
+				if ( distance < -((options.length - 1) * itemHeight + limit)) {
+					distance = -((options.length - 1) * itemHeight + limit)
 				}
 
 				scrollArea.style.transform = 'translate3d(0, '+distance+'px, 0)'
@@ -73,20 +74,21 @@
 				}
 
 				if ( Math.abs(lastOffset) % 36 !== 0) {
-					lastOffset = -(parseInt(Math.abs(lastOffset) / 36) * 36)
+					lastOffset = -(parseInt(Math.abs(lastOffset) / itemHeight) * itemHeight)
 				}
 
-				if ( lastOffset < -((options.length - 1) * 36)) {
-					lastOffset = -((options.length - 1) * 36)
+				if ( lastOffset < -((options.length - 1) * itemHeight)) {
+					lastOffset = -((options.length - 1) * itemHeight)
 				}
 
 				if (lastOffset > 0) return
 				scrollArea.style.transform = 'translate3d(0, '+lastOffset+'px, 0)'
 			}, false)
 
-			document.querySelector("#confirm").addEventListener("click", function() {
-
-				var index = Math.abs(lastOffset/36)
+			document.querySelector("#confirm").addEventListener("touchstart", function(e) {
+				e.preventDefault();
+				
+				var index = Math.abs(lastOffset/itemHeight)
 				document.querySelector("#text").innerHTML = '您选择了第'+(index+1)+'项'+options[index]
 			}, false)
 		}
