@@ -38,7 +38,8 @@ ul {
 }
 
 .picker-column ul {
-	transition: 0.3s ease-out;
+	-webkit-transition: 0.2s ease-out;
+			transition: 0.2s ease-out;
 }
 
 .picker-column li {
@@ -58,11 +59,13 @@ ul {
 
 .up {
 	top: 0;
+	background-image: -webkit-linear-gradient(to bottom, #FFF, rgba(255, 255, 255, 0));
 	background-image: linear-gradient(to bottom, #FFF, rgba(255, 255, 255, 0));
 }
 
 .down {
 	bottom: 0;
+	background-image: -webkit-linear-gradient(to top, #FFF, rgba(255, 255, 255, 0));
 	background-image: linear-gradient(to top, #FFF, rgba(255, 255, 255, 0));
 }
 
@@ -75,5 +78,6 @@ ul {
 	pointer-events: none;
 	border-top: 1px solid #dcdcdc;
 	border-bottom: 1px solid #dcdcdc;
-	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
 }
