@@ -71,8 +71,8 @@ ul {
 }
 
 .picker-column ul {
-	-webkit-transition: 0.2s ease-out;
-			transition: 0.2s ease-out;
+	-webkit-transition: all 0.2s ease-out;
+			transition: all 0.2s ease-out;
 }
 
 .picker-column li {

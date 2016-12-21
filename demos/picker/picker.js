@@ -64,9 +64,12 @@
         		wrap.classList.add('picker-wrap-show');
         	}, false)
 
-            confirmBtn.addEventListener('touchstart', function(e) {
+            wrap.addEventListener('touchstart', function(e) {
                 e.stopPropagation();
                 e.preventDefault();
+            }, false)
+
+            confirmBtn.addEventListener('touchstart', function(e) {
 
                 var index = Math.abs(self.lastOffset / self.itemHeight)
 
@@ -92,14 +95,12 @@
         	}, false)
 
         	scroll.addEventListener('touchstart', function(e) {
-        		e.stopPropagation();
-        		e.preventDefault();
         		
         		self.startY = e.targetTouches[0].pageY;
         	}, false);
 
         	scroll.addEventListener('touchmove', function(e) {
-        		e.preventDefault();
+                
         		var offset = e.targetTouches[0].pageY - self.startY,
 	                distance = offset + self.lastOffset;
 
@@ -130,7 +131,7 @@
 	            }
 
 	            if (self.lastOffset > 0) return
-                console.log(self.startY);
+
 	            scrollArea.style.transform = 'translate3d(0, ' + self.lastOffset + 'px, 0)'
         	}, false)
         }
