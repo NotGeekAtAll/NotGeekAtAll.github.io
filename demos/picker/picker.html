@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<title>picker-obj</title>
+	<link rel="stylesheet" type="text/css" href="picker.css">
+	<script type="text/javascript" src="picker.js"></script>
+</head>
+<body>
+	<input type="text" placeholder="click" id="picker">
+	<div id="container"></div>
+	<script>
+		new EasyPicker({
+			input: '#picker',
+			data: ['Apple', 'Banana', 'Pineapple', 'Peach', 'Lemon', 'Pear', 'Coconut', 'Grape', 'Plum'],
+			container: '#container',
+			callback: function(i, item) {
+				document.querySelector("#picker").value = 'you selected[' + i + ']:' + item
+			}
+		})
+	</script>
+</body>
+</html>

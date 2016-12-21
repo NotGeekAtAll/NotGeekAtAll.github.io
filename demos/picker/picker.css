@@ -7,11 +7,29 @@ html {
     margin: 0;
     padding: 0;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    /*box-sizing: border-box;*/
+    box-sizing: border-box;
 }
 
 ul {
 	list-style: none;
+}
+
+.picker-modal {
+	position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(75, 75, 75, 0);
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    z-index: -1;
+}
+
+.picker-modal.picker-modal-show {
+	background: rgba(0, 0, 0, 0.3);
+	z-index: 8;
 }
 
 .picker-wrap {
@@ -19,22 +37,37 @@ ul {
 	left: 0;
 	bottom: 0;
 	width: 100%;
+	-webkit-transform: translate3d(0, 250px, 0);
+			transform: translate3d(0, 250px, 0);
+	-webkit-transition: all .3s ease;
+    		transition: all .3s ease;
 	background-color: #f1f1f1;
+}
+
+.picker-wrap.picker-wrap-show {
+	-webkit-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
 }
 
 .picker-toolbar {
 	display: flex;
+	height: 50px;
+	padding: 0 20px;
+	align-items: center;
 	justify-content: space-between;
-	padding: 10px;
 	border-top: 1px solid #dcdcdc;
 	border-bottom: 1px solid #dcdcdc;
 	background-color: #fff;
 }
 
+.picker-toolbar button {
+	height: 20px;
+}
+
 .picker-column {
 	position: relative;
 	overflow: hidden;
-	height: 180px;
+	height: 200px;
 }
 
 .picker-column ul {
@@ -43,8 +76,8 @@ ul {
 }
 
 .picker-column li {
-	height: 36px;
-	line-height: 36px;
+	height: 40px;
+	line-height: 40px;
 	text-align: center;
 }
 
